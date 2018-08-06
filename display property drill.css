@@ -1,0 +1,50 @@
+body * {
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0;
+  }
+  
+  a {
+    text-decoration: none;
+  }
+
+  .container1 {
+    max-width: 800px;
+    margin: auto;
+  }
+
+   .top {
+       display: inline-block;
+       height: 200px;
+       width: 50%;
+   }
+
+   .bottom {
+       display: inline-block;
+       height: 300px;
+       width: 33.3%;
+   }
+
+   .box {
+       border: 1px solid black;
+   }
+
+  .box1 {
+      background-color: green;
+  }
+
+  .box2 {
+      background-color: blue;
+  }
+
+  .box3 {
+      background-color: gray;
+  }
+
+  .box4 {
+      background-color: black;
+  }
+
+  .box5 {
+      background-color: yellowgreen;
+  }
