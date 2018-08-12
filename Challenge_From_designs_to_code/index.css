@@ -1,0 +1,27 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.navbar {
+    background-color: lightblue;
+    position: fixed;
+    border-bottom: 2px solid blue;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 5px;
+}
+
+.gl-logo {
+    display: inline-block;
+}
+
+.r-nav {
+    position: absolute;
+    right: 10px;
+    top: 30px;
+}
