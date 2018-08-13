@@ -4,6 +4,7 @@
 
 body {
     margin: 0;
+    padding: 70px;
 }
 
 .navbar {
@@ -20,8 +21,49 @@ body {
     display: inline-block;
 }
 
+.r-nav a:nth-child(2) {
+    margin-left: 8px;
+}
+
+.r-nav a:hover {
+    color: black;
+    text-decoration: underline;
+}
+
+a {
+    text-decoration: none;
+}
+
 .r-nav {
     position: absolute;
     right: 10px;
     top: 30px;
+}
+
+
+.s-section {
+    margin-top: 100px;
+}
+
+
+.pages {
+    display: inline-block;
+    font-size: 0;
+    border: 1px solid blueviolet;
+    border-radius: 3%;
+    margin-top: 40px;
+}
+
+.pagenav {
+    font-size: 14px;
+    display: inline-block;
+    padding: 10px 15px;
+    
+}
+
+.pagedis {
+    font-size: 15px;
+    padding: 8px 25px;
+    border-left: 1px solid blueviolet;
+    border-right: 1px solid blueviolet;
 }
