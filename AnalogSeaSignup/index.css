@@ -17,3 +17,19 @@ body {
     margin:auto;
     margin-top: 30px;
 }
+
+/* .main {
+    width: 400px;
+    background-color: white;
+    border-radius: 8px;
+} */
+
+.f-signup {
+    width: 400px;
+    display: block;
+    justify-content: center;
+}
+
+.f-set {
+    border-style: none;
+}
