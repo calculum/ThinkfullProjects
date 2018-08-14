@@ -6,3 +6,14 @@ body {
     margin: 0;
     background-color: aqua;
 }
+
+.n-logo {
+    display:flex;
+}
+
+.n-img {
+    height: 35px;
+    justify-content: center;
+    margin:auto;
+    margin-top: 30px;
+}
