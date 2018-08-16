@@ -1,0 +1,39 @@
+
+
+body {
+    margin: 0;
+    font-family: "Roboto", sans-serif;
+}
+
+header h1 {
+    font-weight: 300;
+}
+
+header > p {
+    margin-bottom: 60px;    
+}
+
+header {
+    background-color: orange;
+    padding: 0;
+    margin-bottom: 35px;
+}
+
+.card {
+    border: 1px solid blue;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+.card img {
+    width: 100%;
+}
+
+.card-info {
+    padding: 20px;
+}
+
+.carf-info h4 {
+    margin: 0 auto;
+}
+
