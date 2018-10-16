@@ -1,1 +1,15 @@
-    
+body {
+    background-color: #fff;
+    /* background: url("composting1.jpg"); */
+    /* background-repeat: no-repeat; */
+    text-align: center;
+}    
+
+.logo {
+    height: 150px;
+    width: 150px;
+}
+
+ul {
+    list-style: none;
+}

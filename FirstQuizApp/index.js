@@ -1,5 +1,6 @@
 $('body').append('<div>Iam Here</div>');
-{
+
+const questionList = {
     number: 1,
     text: `The process of burning of municipal solid waste at high temperature is called`,
     ans1: `Incineration`, 
