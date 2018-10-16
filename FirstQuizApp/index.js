@@ -1,20 +1,23 @@
-$('body').append('<div>Iam Here</div>');
 
-const questionList = {
+
+const questionList = [
+  {
     number: 1,
     text: `The process of burning of municipal solid waste at high temperature is called`,
     ans1: `Incineration`, 
     ans2: `Composting`, 
     ans3: `Land filing`, 
-    ans4: `Shredding`
+    ans4: `Shredding`,
+    correctAns: 'Incineration',
   },
   { 
     number: 2,
     text: `Which of the following is a biodegradable waste?`,
     ans1: `Polythene bags`,
-    ans2: `Polythene bags`, 
+    ans2: `Synthetic fiber`, 
     ans3: `Food waste`, 
-    ans4: `Paper`
+    ans4: `Paper`,
+    correctAns: 'Polythene bags',
   }, 
   { 
     number: 3,
@@ -22,7 +25,8 @@ const questionList = {
     ans1: `Incineration`,
     ans2: `Composting`, 
     ans3: `Land filing`, 
-    ans4: `Shredding`
+    ans4: `Shredding`,
+    correctAns: 'Land filing',
   }, 
   { 
     number: 4,
@@ -30,7 +34,8 @@ const questionList = {
     ans1: `Economical method`,
     ans2: `Preferred in low lying areas`, 
     ans3: `Foul gases are not produced`, 
-    ans4: `Separation of different types of waste not required`
+    ans4: `Separation of different types of waste not required`,
+    correctAns: 'Foul gases are not produced',
   }, 
   { 
     number: 5,
@@ -38,7 +43,8 @@ const questionList = {
     ans1: `100 kg/m3`,
     ans2: `450 kg/m3`, 
     ans3: `700 kg/m3`, 
-    ans4: `1000 kg/m3`
+    ans4: `1000 kg/m3`,
+    correctAns: '700 kg/m3',
   }, 
   { 
     number: 6,
@@ -46,7 +52,8 @@ const questionList = {
     ans1: `Land fills`,
     ans2: `Shredding`, 
     ans3: `Vermi-composting`, 
-    ans4: `Composting`
+    ans4: `Composting`,
+    correctAns: 'Vermi-composting',
   }, 
   { 
     number: 7,
@@ -54,7 +61,8 @@ const questionList = {
     ans1: `Municipal solid waste`,
     ans2: `Non biodegradable waste`, 
     ans3: `Hazardous waste`, 
-    ans4: `Non hazardous waste`
+    ans4: `Non hazardous waste`,
+    correctAns: 'Non hazardous waste',
   }, 
   { 
     number: 8,
@@ -62,7 +70,8 @@ const questionList = {
     ans1: `Bangalore method`,
     ans2: `Area method`, 
     ans3: `Depression method`, 
-    ans4: `Trench method`
+    ans4: `Trench method`,
+    correctAns: 'Bangalore method',
   }, 
   { 
     number: 9,
@@ -70,7 +79,8 @@ const questionList = {
     ans1: `Leachate`,
     ans2: `Sludge`, 
     ans3: `Distilled water`, 
-    ans4: `Municipal waste`
+    ans4: `Municipal waste`,
+    correctAns: 'Leachate',
   }, 
   { 
     number: 10,
@@ -78,6 +88,26 @@ const questionList = {
     ans1: `Radioactive substance`,
     ans2: `Ashes`, 
     ans3: `Food waste`, 
-    ans4: `Rubbish`
+    ans4: `Rubbish`,
+    correctAns: 'Radioactive substance',
   }, 
+  ]
+
+
+  function quizTest() {
+  $('.startButton').click(function(event) {
+    event.preventDefault();
+    $('main').hide();
+  });
+  };
+
+  function questionTemplate() {
+    return `
+    
+    `
+  };
+  $(quizTest);
+
+
+  
 
