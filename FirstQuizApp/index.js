@@ -40,11 +40,11 @@ const questionList = [
   { 
     number: 5,
     text: `The density of ash produced in the municipal solid waste is`,
-    ans1: `100 kg/m3`,
-    ans2: `450 kg/m3`, 
-    ans3: `700 kg/m3`, 
-    ans4: `1000 kg/m3`,
-    correctAns: '700 kg/m3',
+    ans1: `100 kg/m<sup>3</sup>`,
+    ans2: `450 kg/m<sup>3</sup>`, 
+    ans3: `700 kg/m<sup>3</sup>`, 
+    ans4: `1000 kg/m<sup>3</sup>`,
+    correctAns: '700 kg/m<sup>3</sup>',
   }, 
   { 
     number: 6,
