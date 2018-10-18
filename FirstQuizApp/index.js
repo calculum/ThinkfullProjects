@@ -106,6 +106,7 @@ const questionList = [
     
     `
   };
+  quizTes
   $(quizTest);
 
 
