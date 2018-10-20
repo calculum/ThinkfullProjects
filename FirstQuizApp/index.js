@@ -103,21 +103,11 @@ const questionList = [
 
   function questionTemplate() {
     return `
-    
+
     `
-<<<<<<< HEAD
-};
-
-function handleEntrybutton() {
-  $('.quizStart').on('click', )
-}
-$(quizTest);
-
-=======
   };
   quizTes
   $(quizTest);
->>>>>>> 379fc18400e9de35679b1ef227ea75c533810647
 
 
   
