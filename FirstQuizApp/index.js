@@ -103,7 +103,30 @@ const questionList = [
 
   function questionTemplate() {
     return `
-
+    <section>
+    <h1 id="question-page" role="main">${questions.text}</h1>
+    <fieldset>
+      <label for="choice">
+        <input class="user-choice" type="radio" name="option">
+        <span>${questions.ans1}</span>
+      </label>
+      <label for="choice">
+        <input class="user-choice" type="radio" name="option">
+        <span>${questions.ans2}</span>
+      </label>
+      <label for="choice">
+        <input class="user-choice" type="radio" name="option">
+        <span>${questions.ans3}</span>
+      </label>
+      <label for="choice">
+        <input class="user-choice" type="radio" name="option">
+        <span>${questions.ans4}</span>
+      </label>
+    </fieldset>
+    <div>
+    <button id="quest-submit" type="submit">Submit</button>
+    </div> 
+  </section>
     `
   };
   quizTes
