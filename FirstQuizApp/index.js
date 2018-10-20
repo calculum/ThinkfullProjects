@@ -1,4 +1,4 @@
-
+let 
 
 const questionList = [
   {
@@ -131,7 +131,9 @@ function questionTemplate(questions, correctAnswer, questionCompleted) {
     `
 };
 
-
+function handleEntrybutton() {
+  $('.quizStart').on('click', )
+}
 $(quizTest);
 
 
