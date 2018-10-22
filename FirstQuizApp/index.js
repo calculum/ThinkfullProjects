@@ -129,7 +129,6 @@ const questionList = [
   </section>
     `
   };
-  quizTes
   $(quizTest);
 
 
