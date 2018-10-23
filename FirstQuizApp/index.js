@@ -146,12 +146,17 @@ function handleStatusBar() {
 
 
 function checkAnswer() {
-
+  $('form').on('submit', '.questionDisplay', function (event){
+    even.preventDefault();
+    $('input[name="option"]:checked').val();
+    });
+    console.log($('input[name="option"]:checked').val());
 };
 
 
 function handleQuestSubmit() {
-  $('#quest-submit').click(function () {
+  $('#quest-submit').click(function (event) {
+    event.preventDefault();
 
   });
 };
@@ -184,4 +189,9 @@ function incorrectFeedback() {
 };
 
 
-quizStart();
+$(function () {
+  console.log('Hello World.');
+  quizStart();
+  checkAnswer();
+});
+
