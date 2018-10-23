@@ -133,10 +133,9 @@ function quizStart() {
     event.preventDefault();
     $('main').hide();
     $('.questionDisplay').html(questionSnippet());
-    console.log('text');
+    console.log('test');
     handleStatusBar();
   });
-
 };
 
 function handleStatusBar() {
