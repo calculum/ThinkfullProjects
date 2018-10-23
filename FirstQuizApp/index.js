@@ -133,6 +133,7 @@ function quizStart() {
     event.preventDefault();
     $('main').hide();
     $('.questionDisplay').html(questionSnippet());
+    console.log('text');
     handleStatusBar();
   });
 
@@ -183,5 +184,5 @@ function incorrectFeedback() {
   incorrectFeedback(incorrectFeedback);
 };
 
-quizStart();
 
+quizStart();
