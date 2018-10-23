@@ -142,20 +142,24 @@ function handleStatusBar() {
   var questionCount = $('.question-count').val();
   questionCount++;
   console.log("StatusBarUp");
-}
+};
+
 
 function checkAnswer() {
   
-}
+};
+
+
 function handleQuestSubmit() {
   $('#quest-submit').click(function () {
     
-  })
+  });
 };
 
 function handleNextButton() {
 
 };
+
 
 function correctFeedack() {
   const correctFeedback =  `
@@ -179,5 +183,5 @@ function incorrectFeedback() {
   incorrectFeedback(incorrectFeedback);
 };
 
-
+quizStart();
 
