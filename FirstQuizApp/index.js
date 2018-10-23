@@ -146,13 +146,13 @@ function handleStatusBar() {
 
 
 function checkAnswer() {
-  
+
 };
 
 
 function handleQuestSubmit() {
   $('#quest-submit').click(function () {
-    
+
   });
 };
 
@@ -162,7 +162,7 @@ function handleNextButton() {
 
 
 function correctFeedack() {
-  const correctFeedback =  `
+  const correctFeedback = `
     < section class="feedback-page" role="main">
       <h2>You're right.</h2>
       <h2>${questionList[choiceAns].correctAns}</h2>
