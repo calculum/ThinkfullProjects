@@ -126,7 +126,6 @@ function questionSnippet() {
     </div> 
   </section>
     `
-<<<<<<< HEAD
 };
 
 function quizStart() {
@@ -138,10 +137,6 @@ function quizStart() {
   });
 
 };
-=======
-  };
-  $(quizTest);
->>>>>>> 754d8003223ce8e885f5954dcf5f677daa8f658d
 
 function handleStatusBar() {
   var questionCount = $('.question-count').val();
