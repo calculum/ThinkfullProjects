@@ -122,7 +122,7 @@ function questionSnippet() {
   </form>
   <section>
     <div>
-    <button id="quest-submit" type="submit">Submit</button>
+    <input id="quest-submit" type="button" value="Submit">
     </div> 
   </section>
     `
@@ -130,7 +130,6 @@ function questionSnippet() {
 
 function quizStart() {
   $('.startButton').click(function (event) {
-    event.preventDefault();
     $('main').hide();
     $('.questionDisplay').html(questionSnippet());
     console.log('test');
@@ -147,7 +146,6 @@ function handleStatusBar() {
 
 function checkAnswer() {
   $('form').on('submit', '.questionDisplay', function (event){
-    even.preventDefault();
     $('input[name="option"]:checked').val();
     });
     console.log($('input[name="option"]:checked').val());
@@ -156,13 +154,12 @@ function checkAnswer() {
 
 function handleQuestSubmit() {
   $('#quest-submit').click(function (event) {
-    event.preventDefault();
 
   });
 };
 
 function handleNextButton() {
-
+  $('#quest-submit')
 };
 
 
