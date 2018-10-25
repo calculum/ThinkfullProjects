@@ -133,16 +133,16 @@ function quizStart() {
     $('main').hide();
     $('.questionDisplay').html(questionSnippet());
     console.log('Transition to question page successful.');
-    handleStatusBar();
+    statusBar();
   });
 };
 
 
 
-function handleStatusBar() {
+function statusBar() {
   var questionCount = 0;
   questionCount++;
-  $('.question-count').text(questionCount);
+  $('.question-count').html(questionCount);
   console.log("Status Bar number uodate successful.");
 };
 
@@ -155,9 +155,11 @@ function checkAnswer() {
 
 
 function handleAnsSubmit() {
-  $('#ans-submit').click(function (){
-    // $('form').hide(questionSnippet());
-    console.log('clicked.');
+  $(document).on('click','#ans-submit', function () {
+    $('form').hide(questionSnippet());
+    $(document).html(correctFeedack());
+
+    console.log('clicked.');   
   });
 };
 
@@ -171,7 +173,7 @@ function correctFeedack() {
     < section class="feedback-page" role="main">
       <h2>You're right.</h2>
       <h2>${questionList[choiceAns].correctAns}</h2>
-      <button type="submit" id="next-button">Next</button>
+      <button type="button" id="next-button">Next</button>
     </section >
     `;
   correctFeedack();
@@ -182,7 +184,7 @@ function incorrectFeedback() {
     < section class="feedback-page" role="main">
       <h2>Incorrect.</h2>
       <h2>${questionList[choiceAns].correctAns}</h2>
-      <button type="submit" id="next-button">Next</button>
+      <button type="button" id="next-button">Next</button>
     </section >
     `;
   incorrectFeedback(incorrectFeedback);
@@ -191,5 +193,6 @@ function incorrectFeedback() {
 
 $(function () {
   quizStart();
+  handleAnsSubmit();
 });
 
