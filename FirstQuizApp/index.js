@@ -137,18 +137,21 @@ function quizStart() {
   });
 };
 
+
+
 function handleStatusBar() {
-  var questionCount = $('.question-count').val();
+  var questionCount = 0;
   questionCount++;
+  $('.question-count').text(questionCount);
   console.log("StatusBarUp");
+  console.log(questionCount);
 };
 
 
 function checkAnswer() {
-  $('form').on('submit', '.questionDisplay', function (event){
-    $('input[name="option"]:checked').val();
-    });
-    console.log($('input[name="option"]:checked').val());
+  
+    console.log($('input[name="option"]:checked').val())
+    
 };
 
 

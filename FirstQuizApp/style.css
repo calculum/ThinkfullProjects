@@ -13,3 +13,7 @@ body {
 ul {
     list-style: none;
 }
+
+form label {
+    display: block;
+}
