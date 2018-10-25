@@ -119,20 +119,20 @@ function questionSnippet() {
         <span>${questionList[choiceAns].ans4}</span>
       </label>
       </fieldset>
-  </form>
+  
   <section>
     <div>
-    <input id="quest-submit" type="button" value="Submit">
+    <input id="ans-submit" type="button" value="Submit">
     </div> 
   </section>
-    `
+  </form>  `
 };
 
 function quizStart() {
   $('.startButton').click(function (event) {
     $('main').hide();
     $('.questionDisplay').html(questionSnippet());
-    console.log('test');
+    console.log('Transition to question page successful.');
     handleStatusBar();
   });
 };
@@ -143,8 +143,7 @@ function handleStatusBar() {
   var questionCount = 0;
   questionCount++;
   $('.question-count').text(questionCount);
-  console.log("StatusBarUp");
-  console.log(questionCount);
+  console.log("Status Bar number uodate successful.");
 };
 
 
@@ -155,14 +154,15 @@ function checkAnswer() {
 };
 
 
-function handleQuestSubmit() {
-  $('#quest-submit').click(function (event) {
-
+function handleAnsSubmit() {
+  $('#ans-submit').click(function (){
+    // $('form').hide(questionSnippet());
+    console.log('clicked.');
   });
 };
 
 function handleNextButton() {
-  $('#quest-submit')
+  $('')
 };
 
 
@@ -174,7 +174,7 @@ function correctFeedack() {
       <button type="submit" id="next-button">Next</button>
     </section >
     `;
-  correctFeedack(correctFeedback);
+  correctFeedack();
 };
 
 function incorrectFeedback() {
@@ -190,8 +190,6 @@ function incorrectFeedback() {
 
 
 $(function () {
-  console.log('Hello World.');
   quizStart();
-  checkAnswer();
 });
 
