@@ -1,6 +1,5 @@
 
 
-
 const questionList = [
   {
     id: 1,
@@ -92,35 +91,36 @@ const questionList = [
   },
 ]
 
+let questionCount = 0;
+
 let choiceAns = 0;
 
 function questionSnippet() {
   return `
   <form>
-    <fileldset>
     <h1 id="question-page" role="main">${questionList[choiceAns].text}</h1>
     <fieldset>
-      <label for="choice">
-        <input class="user-choice" type="radio" name="option" required>
+      <label for="r1">
+        <input id="r1" class="user-choice" type="radio" name="option" required>
         <span>${questionList[choiceAns].ans1}</span>
       </label>
-      <label for="choice">
-        <input class="user-choice" type="radio" name="option">
+      <label for="r2">
+        <input id="r2" class="user-choice" type="radio" name="option">
         <span>${questionList[choiceAns].ans2}</span>
       </label>
-      <label for="choice">
-        <input class="user-choice" type="radio" name="option">
+      <label for="r3">
+        <input id="r3" class="user-choice" type="radio" name="option">
         <span>${questionList[choiceAns].ans3}</span>
       </label>
-      <label for="choice">
-        <input class="user-choice" type="radio" name="option">
+      <label for="r4">
+        <input id="r4" class="user-choice" type="radio" name="option">
         <span>${questionList[choiceAns].ans4}</span>
       </label>
       </fieldset>
   
   <section>
     <div>
-    <input id="ans-submit" type="button" value="Submit">
+    <input id="ans-submit" type="submit" value="Submit">
     </div> 
   </section>
   </form>  `
@@ -132,13 +132,13 @@ function quizStart() {
     $('.questionDisplay').html(questionSnippet());
     console.log('Transition to question page successful.');
     statusBar();
+
   });
 };
 
 
 
 function statusBar() {
-  var questionCount = 0;
   questionCount++;
   $('.question-count').html(questionCount);
   console.log("Status Bar number uodate successful.");
@@ -146,18 +146,21 @@ function statusBar() {
 
 
 function checkAnswer() {
-  
-    console.log($('input[name="option"]:checked').val())
+
     
 };
 
 
-function handleAnsSubmit() {
-  $(document).on('click','#ans-submit', function () {
-    $('form').hide(questionSnippet());
-    $(document).html(correctFeedack());
 
+
+function handleAnsSubmit() {
+  $(document).on('submit','form', function (event) {
+    event.preventDefault();
+    $('form').hide(questionSnippet());
+    $('.questionDisplay').html(correctFeedack());
+    
     console.log('clicked.');   
+    console.log(questionList[questionCount-1]);
   });
 };
 
@@ -167,30 +170,37 @@ function handleNextButton() {
 
 
 function correctFeedack() {
-  const correctFeedback = `
-    < section class="feedback-page" role="main">
+  return `
+    <section class="feedback-page" role="main">
       <h2>You're right.</h2>
       <h2>${questionList[choiceAns].correctAns}</h2>
       <button type="button" id="next-button">Next</button>
     </section >
     `;
-  correctFeedack();
 };
 
 function incorrectFeedback() {
-  const incorrectFeedback = `
+  return `
     < section class="feedback-page" role="main">
       <h2>Incorrect.</h2>
       <h2>${questionList[choiceAns].correctAns}</h2>
       <button type="button" id="next-button">Next</button>
     </section >
     `;
-  incorrectFeedback(incorrectFeedback);
 };
 
 
 $(function () {
   quizStart();
   handleAnsSubmit();
+  $(document).on('click', '#ans-submit', function(){
+    console.log('Hello World');
+    console.log($('input[name="option":checked]').val());
+    $('form option:selected').each(function () {
+      alert($(this).val());
+  });
+
+  
+  });
 });
 
