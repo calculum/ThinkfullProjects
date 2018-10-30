@@ -3,11 +3,8 @@
 const questionList = [
   {
     number: 1,
-    text: `The process of burning of municipal solid waste at high temperature is called______`,
-    ans1: `Incineration`,
-    ans2: `Composting`,
-    ans3: `Land filing`,
-    ans4: `Shredding`,
+    question: `The process of burning of municipal solid waste at high temperature is called______`,
+    answers: [`Incineration`,`Composting`,`Land filing`,`Shredding`],
     correctAns: 'Incineration',
   },
   {
@@ -94,29 +91,29 @@ const questionList = [
 ]
 
 let questionCount = 0;
-
-let choiceAns = 0;
+let score = 0;
+let question = 0;
 
 function questionSnippet() {
   return `
   <form>
-    <h1 id="question-page" role="main">${questionList[choiceAns].text}</h1>
+    <h1 id="question-page" role="main">${questionList[question].text}</h1>
     <fieldset>
-      <label for="r1">
-        <input id="r1" class="user-choice" type="radio" name="option" required>
-        <span>${questionList[choiceAns].ans1}</span>
+      <label for="c1">
+        <input id="c1" class="user-choice" type="radio" name="option" required>
+        <span>${questionList[question].answers[0]}</span>
       </label>
-      <label for="r2">
-        <input id="r2" class="user-choice" type="radio" name="option">
-        <span>${questionList[choiceAns].ans2}</span>
+      <label for="c2">
+        <input id="c2" class="user-choice" type="radio" name="option">
+        <span>${questionList[question].answers[1]}</span>
       </label>
-      <label for="r3">
-        <input id="r3" class="user-choice" type="radio" name="option">
-        <span>${questionList[choiceAns].ans3}</span>
+      <label for="c3">
+        <input id="c3" class="user-choice" type="radio" name="option">
+        <span>${questionList[question].answers[2]}</span>
       </label>
-      <label for="r4">
-        <input id="r4" class="user-choice" type="radio" name="option">
-        <span>${questionList[choiceAns].ans4}</span>
+      <label for="c4">
+        <input id="c4" class="user-choice" type="radio" name="option">
+        <span>${questionList[question].answers[3]}</span>
       </label>
       </fieldset>
   
@@ -146,10 +143,18 @@ function statusBar() {
   console.log("Status Bar number uodate successful.");
 };
 
+function socreBar() {
+  if (correctFeedback === true) {
+    socreBar++;
+  } else {
+    socreBar--;
+  }
+  $('.score').html(score);
+  console.log('Score has changed.');
+};
 
 function checkAnswer() {
-
-    
+  
 };
 
 
@@ -161,8 +166,6 @@ function handleAnsSubmit() {
     $('form').hide(questionSnippet());
     $('.questionDisplay').html(correctFeedack());
     
-    console.log('clicked.');   
-    console.log(questionList[questionCount-1]);
   });
 };
 
@@ -175,7 +178,7 @@ function correctFeedack() {
   return `
     <section class="feedback-page" role="main">
       <h2>You're right.</h2>
-      <h2>${questionList[choiceAns].correctAns}</h2>
+      <h2>${questionList[question].correctAns}</h2>
       <button type="button" id="next-button">Next</button>
     </section >
     `;
@@ -185,7 +188,7 @@ function incorrectFeedback() {
   return `
     < section class="feedback-page" role="main">
       <h2>Incorrect.</h2>
-      <h2>${questionList[choiceAns].correctAns}</h2>
+      <h2>${questionList[question].correctAns}</h2>
       <button type="button" id="next-button">Next</button>
     </section >
     `;
@@ -195,14 +198,9 @@ function incorrectFeedback() {
 $(function () {
   quizStart();
   handleAnsSubmit();
-  $(document).on('click', '#ans-submit', function(){
-    console.log('Hello World');
-    console.log($('input[name="option":checked]').val());
-    $('form option:selected').each(function () {
-      alert($(this).val());
-  });
-
-  
+  $(document).on('click','#ans-submit', function () {
+    console.log("clicked");
+    console.log($('input[name = option]:checked').val());
   });
 });
 
