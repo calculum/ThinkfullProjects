@@ -3,17 +3,17 @@
 const questionList = [
   {
     number: 1,
-    text: `The process of burning of municipal solid waste at high temperature is called______`,
-    ans1:`Incineration`,
-    ans2:`Composting`,
-    ans3:`Land filing`,
-    ans4:`Shredding`,
+    text: `1. The process of burning of municipal solid waste at high temperature is called______`,
+    ans1: `Incineration`,
+    ans2: `Composting`,
+    ans3: `Land filing`,
+    ans4: `Shredding`,
     correctAns: `Incineration`,
   },
-  
+
   {
     number: 2,
-    text: `Which of the following is a biodegradable waste?`,
+    text: `2. Which of the following is a biodegradable waste?`,
     ans1: `Polythene bags`,
     ans2: `Synthetic fiber`,
     ans3: `Food waste`,
@@ -22,7 +22,7 @@ const questionList = [
   },
   {
     number: 3,
-    text: `In which method of disposal of municipal solid waste, the waste is dumped in the soil?`,
+    text: `3.In which method of disposal of municipal solid waste, the waste is dumped in the soil?`,
     ans1: `Incineration`,
     ans2: `Composting`,
     ans3: `Land filing`,
@@ -31,7 +31,7 @@ const questionList = [
   },
   {
     number: 4,
-    text: `Which of the following is correct regarding disposal of waste by land filling?`,
+    text: `4. Which of the following is correct regarding disposal of waste by land filling?`,
     ans1: `Economical method`,
     ans2: `Preferred in low lying areas`,
     ans3: `Foul gases are not produced`,
@@ -40,7 +40,7 @@ const questionList = [
   },
   {
     number: 5,
-    text: `The density of ash produced in the municipal solid waste is`,
+    text: `5. The density of ash produced in the municipal solid waste is`,
     ans1: `100 kg/m<sup>3</sup>`,
     ans2: `450 kg/m<sup>3</sup>`,
     ans3: `700 kg/m<sup>3</sup>`,
@@ -49,7 +49,7 @@ const questionList = [
   },
   {
     number: 6,
-    text: `The process of decomposition of biodegradable solid waste by earthworms is called`,
+    text: `6. The process of decomposition of biodegradable solid waste by earthworms is called`,
     ans1: `Land fills`,
     ans2: `Shredding`,
     ans3: `Vermi-composting`,
@@ -58,7 +58,7 @@ const questionList = [
   },
   {
     number: 7,
-    text: `The waste produced in cotton mills are`,
+    text: `7.The waste produced in cotton mills are`,
     ans1: `Municipal solid waste`,
     ans2: `Non biodegradable waste`,
     ans3: `Hazardous waste`,
@@ -67,7 +67,7 @@ const questionList = [
   },
   {
     number: 8,
-    text: `Which of the following is not the land filling method?`,
+    text: `8. Which of the following is not the land filling method?`,
     ans1: `Bangalore method`,
     ans2: `Area method`,
     ans3: `Depression method`,
@@ -76,7 +76,7 @@ const questionList = [
   },
   {
     number: 9,
-    text: `______ is a liquid that passes through solid waste and extract suspended impurities from it.`,
+    text: `9. ______ is a liquid that passes through solid waste and extract suspended impurities from it.`,
     ans1: `Leachate`,
     ans2: `Sludge`,
     ans3: `Distilled water`,
@@ -85,7 +85,7 @@ const questionList = [
   },
   {
     number: 10,
-    text: `Which of the following is not the municipal solid waste?`,
+    text: `10. Which of the following is not the municipal solid waste?`,
     ans1: `Radioactive substance`,
     ans2: `Ashes`,
     ans3: `Food waste`,
@@ -135,7 +135,8 @@ function quizStart() {
     $('.questionDisplay').html(questionSnippet());
     console.log('Transition to question page successful.');
     statusBar();
-
+    handlerUserInput();
+    handleNextQuest();
   });
 };
 
@@ -147,50 +148,33 @@ function statusBar() {
   console.log("Status Bar number uodate successful.");
 };
 
-function socreBar() {
-  if (correctFeedback === true) {
-    socreBar++;
-  } else {
-    socreBar--;
-  }
-  $('.score').html(score);
-  console.log('Score has changed.');
-};
 
-function checkAnswer() {
-  let userInput;
-  $(document).on('click','#ans-submit', function () {
-  });
-  
-
-};
-
-
-
-
-function handleAnsSubmit() {
-  $(document).on('submit','form', function (event) {
+function handlerUserInput() {
+  $(document).on('submit', 'form', function (event) {
     event.preventDefault();
     userInput = $('input[name="option"]:checked').val();
     console.log("clicked");
     console.log($('input[name="option"]:checked').val());
     console.log(questionList[questionCount-1].correctAns);
-
     $('form').hide(questionSnippet());
+
     if (questionList[questionCount-1].correctAns === userInput) {
       //Calling correct user feedback
       $('.questionDisplay').html(correctFeedack());
       score++;
+      $('.score').html(score++);
     } else {
       $('.questionDisplay').html(incorrectFeedback());
-      score--;
     };
-  
   });
-  
+
 };
 
-function handleNextButton() {
+function handleNextQuest() {
+  $(document).on('click','#next-button', function () {
+  $('.feedback-page').hide();
+  $('.questionDisplay').html(questionSnippet(question++));
+  });
 };
 
 
@@ -198,7 +182,7 @@ function correctFeedack() {
   return `
     <section class="feedback-page" role="main">
       <h2>You're right.</h2>
-      <h2>${questionList[question].correctAns}</h2>
+      <h2>${questionList[questionCount-1].correctAns}</h2>
       <button type="button" id="next-button">Next</button>
     </section >
     `;
@@ -208,7 +192,7 @@ function incorrectFeedback() {
   return `
     <section class="feedback-page" role="main">
       <h2>Incorrect.</h2>
-      <h2>${questionList[question].correctAns}</h2>
+      <h2>${questionList[questionCount-1].correctAns}</h2>
       <button type="button" id="next-button">Next</button>
     </section >
     `;
@@ -217,6 +201,5 @@ function incorrectFeedback() {
 
 $(function () {
   quizStart();
-  handleAnsSubmit();
 });
 
