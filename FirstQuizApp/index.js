@@ -2,11 +2,12 @@
 
 const questionList = [
   {
-    number: 1,
+    id: 1,
     question: `The process of burning of municipal solid waste at high temperature is called______`,
-    answers: [`Incineration`,`Composting`,`Land filing`,`Shredding`],
-    correctAns: 'Incineration',
+    answers: [`Incineration`, `Composting`, `Land filing`, `Shredding`], 
+    correctAns: [0],
   },
+  
   {
     number: 2,
     text: `Which of the following is a biodegradable waste?`,
