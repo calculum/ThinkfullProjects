@@ -104,19 +104,19 @@ function questionSnippet() {
     <h1 id="question-page" role="main">${questionList[question].text}</h1>
     <fieldset>
       <label for="c1">
-        <input id="c1" class="user-choice" type="radio" name="option" value="${questionList[question].ans1}" required>
+        <input id="c1" type="radio" name="option" value="${questionList[question].ans1}" required>
         <span>${questionList[question].ans1}</span>
       </label>
       <label for="c2">
-        <input id="c2" class="user-choice" type="radio" name="option" value="${questionList[question].ans2}">
+        <input id="c2" type="radio" name="option" value="${questionList[question].ans2}">
         <span>${questionList[question].ans2}</span>
       </label>
       <label for="c3">
-        <input id="c3" class="user-choice" type="radio" name="option" value="${questionList[question].ans3}">
+        <input id="c3" type="radio" name="option" value="${questionList[question].ans3}">
         <span>${questionList[question].ans3}</span>
       </label>
       <label for="c4">
-        <input id="c4" class="user-choice" type="radio" name="option" value="${questionList[question].ans4}">
+        <input id="c4" type="radio" name="option" value="${questionList[question].ans4}">
         <span>${questionList[question].ans4}</span>
       </label>
       </fieldset>
@@ -135,28 +135,27 @@ function quizStart() {
     $('.questionDisplay').html(questionSnippet());
     console.log('Transition to question page successful.');
     statusBar();
-    handlerUserInput();
+    handleUserInput();
     handleNextQuest();
   });
 };
 
-
-
 function statusBar() {
   questionCount++;
-  $('.question-count').html(questionCount);
+  $('.question-count').html(questionCount++);
   console.log("Status Bar number uodate successful.");
 };
 
 
-function handlerUserInput() {
+function handleUserInput() {
   $(document).on('submit', 'form', function (event) {
+    var userInput = $('input[name="option"]:checked').val();
     event.preventDefault();
-    userInput = $('input[name="option"]:checked').val();
+    $('form').hide(questionSnippet());
     console.log("clicked");
     console.log($('input[name="option"]:checked').val());
     console.log(questionList[questionCount-1].correctAns);
-    $('form').hide(questionSnippet());
+    
 
     if (questionList[questionCount-1].correctAns === userInput) {
       //Calling correct user feedback
@@ -172,6 +171,7 @@ function handlerUserInput() {
 
 function handleNextQuest() {
   $(document).on('click','#next-button', function () {
+    statusBar();
   $('.feedback-page').hide();
   $('.questionDisplay').html(questionSnippet(question++));
   });
@@ -182,7 +182,7 @@ function correctFeedack() {
   return `
     <section class="feedback-page" role="main">
       <h2>You're right.</h2>
-      <h2>${questionList[questionCount-1].correctAns}</h2>
+      <h2>${questionList[questionCount++-1].correctAns}</h2>
       <button type="button" id="next-button">Next</button>
     </section >
     `;
@@ -192,7 +192,7 @@ function incorrectFeedback() {
   return `
     <section class="feedback-page" role="main">
       <h2>Incorrect.</h2>
-      <h2>${questionList[questionCount-1].correctAns}</h2>
+      <h2>${questionList[questionCount++-1].correctAns}</h2>
       <button type="button" id="next-button">Next</button>
     </section >
     `;
