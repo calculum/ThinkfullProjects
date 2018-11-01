@@ -129,25 +129,27 @@ function questionSnippet() {
   </form>  `
 };
 
-function quizStart() {
+function runQuiz() {
   $('.startButton').click(function (event) {
     $('main').hide();
     $('.questionDisplay').html(questionSnippet());
     console.log('Transition to question page successful.');
     statusBar();
-    handleUserInput();
-    handleNextQuest();
+    userInputHandler();
+    nextQuestHandler();
+    
   });
 };
 
+//Current question number and score.
 function statusBar() {
   questionCount++;
-  $('.question-count').html(questionCount++);
-  console.log("Status Bar number uodate successful.");
+  $('.question-count').html(questionCount);
+  console.log("Status Bar update successful.");
 };
 
-
-function handleUserInput() {
+// Check user's answer
+function userInputHandler() {
   $(document).on('submit', 'form', function (event) {
     var userInput = $('input[name="option"]:checked').val();
     event.preventDefault();
@@ -161,15 +163,17 @@ function handleUserInput() {
       //Calling correct user feedback
       $('.questionDisplay').html(correctFeedack());
       score++;
-      $('.score').html(score++);
+      $('.score').html(score);
     } else {
       $('.questionDisplay').html(incorrectFeedback());
     };
+
+    resultPage();
   });
 
 };
 
-function handleNextQuest() {
+function nextQuestHandler() {
   $(document).on('click','#next-button', function () {
     statusBar();
   $('.feedback-page').hide();
@@ -177,12 +181,26 @@ function handleNextQuest() {
   });
 };
 
+function resultPage() {
+  $(document).on('click', '#next-button', function () {
+    console.log('result page triggered.')
+    if (quetionCount > 10) {
+      $(".feedback-page").hide();
+      $('.questionDisplay').html(`
+        <section class="result-page">
+        <h1>Your final score is ${score} / 10.</h1>
+        <button class="restart-button" type="button">Restart</button>
+        </section>
+      `);
+    };
+  });
+};
 
 function correctFeedack() {
   return `
     <section class="feedback-page" role="main">
       <h2>You're right.</h2>
-      <h2>${questionList[questionCount++-1].correctAns}</h2>
+      <h2>${questionList[questionCount-1].correctAns}</h2>
       <button type="button" id="next-button">Next</button>
     </section >
     `;
@@ -192,7 +210,7 @@ function incorrectFeedback() {
   return `
     <section class="feedback-page" role="main">
       <h2>Incorrect.</h2>
-      <h2>${questionList[questionCount++-1].correctAns}</h2>
+      <h2>${questionList[questionCount-1].correctAns}</h2>
       <button type="button" id="next-button">Next</button>
     </section >
     `;
@@ -200,6 +218,6 @@ function incorrectFeedback() {
 
 
 $(function () {
-  quizStart();
+  runQuiz();
 });
 
