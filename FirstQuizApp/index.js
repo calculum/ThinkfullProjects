@@ -104,7 +104,7 @@ function questionSnippet() {
     <h1 id="question-page" role="main">${questionList[question].text}</h1>
     <fieldset>
       <label for="c1">
-        <input id="c1" type="radio" name="option" value="${questionList[question].ans1}" required>
+        <input id="c1" type="radio" name="option" value="${questionList[question].ans1}">
         <span>${questionList[question].ans1}</span>
       </label>
       <label for="c2">
@@ -131,13 +131,13 @@ function questionSnippet() {
 
 function runQuiz() {
   $('.startButton').click(function (event) {
-    $('main').hide();
+    $('main').remove();
     $('.questionDisplay').html(questionSnippet());
     console.log('Transition to question page successful.');
     statusBar();
     userInputHandler();
     nextQuestHandler();
-    
+    resultPage();
   });
 };
 
@@ -168,7 +168,7 @@ function userInputHandler() {
       $('.questionDisplay').html(incorrectFeedback());
     };
 
-    resultPage();
+    // resultPage();
   });
 
 };
@@ -184,14 +184,14 @@ function nextQuestHandler() {
 function resultPage() {
   $(document).on('click', '#next-button', function () {
     console.log('result page triggered.')
-    if (quetionCount > 10) {
-      $(".feedback-page").hide();
+    if (questionCount > 10) {
+      $(".feedback-page").remove();
       $('.questionDisplay').html(`
         <section class="result-page">
         <h1>Your final score is ${score} / 10.</h1>
         <button class="restart-button" type="button">Restart</button>
-        </section>
-      `);
+        </section>`
+      );
     };
   });
 };
