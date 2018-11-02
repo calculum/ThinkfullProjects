@@ -131,13 +131,13 @@ function questionSnippet() {
 
 function runQuiz() {
   $('.startButton').click(function (event) {
-    $('main').remove();
+    $('main').hide();
     $('.questionDisplay').html(questionSnippet());
     console.log('Transition to question page successful.');
     statusBar();
     userInputHandler();
     nextQuestHandler();
-    resultPage();
+    // resultPage();
   });
 };
 
@@ -168,7 +168,6 @@ function userInputHandler() {
       $('.questionDisplay').html(incorrectFeedback());
     };
 
-    // resultPage();
   });
 
 };
@@ -177,22 +176,30 @@ function nextQuestHandler() {
   $(document).on('click','#next-button', function () {
     statusBar();
   $('.feedback-page').hide();
-  $('.questionDisplay').html(questionSnippet(question++));
+  if (questionCount <= 10 ) {
+    $('.questionDisplay').html(questionSnippet(question++));
+  } else { 
+    restartPage();
+    $('.question-count').html('10');   
+    $(".feedback-page").remove();
+    $('.questionDisplay').html(`
+    <section class="result-page">
+    <h1>Your final score is ${score} / 10.</h1>
+    <button class="restart-button" type="button">Restart</button>
+    </section>`
+  );
+}
   });
 };
 
-function resultPage() {
-  $(document).on('click', '#next-button', function () {
-    console.log('result page triggered.')
-    if (questionCount > 10) {
-      $(".feedback-page").remove();
-      $('.questionDisplay').html(`
-        <section class="result-page">
-        <h1>Your final score is ${score} / 10.</h1>
-        <button class="restart-button" type="button">Restart</button>
-        </section>`
-      );
-    };
+function restartPage() {
+    
+  $(document).on('click','.restart-button', function() {
+    $(document).reset();
+    // questionCount = 0;
+    // score = 0;
+    // $('.result-page').remove();
+    // $('main').show();
   });
 };
 
@@ -219,5 +226,6 @@ function incorrectFeedback() {
 
 $(function () {
   runQuiz();
+  restartPage();
 });
 
