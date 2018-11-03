@@ -176,7 +176,7 @@ function nextQuestHandler() {
   $(document).on('click','#next-button', function () {
     statusBar();
   $('.feedback-page').hide();
-  if (questionCount <= 10 ) {
+  if (questionList.length > 10 ) {
     $('.questionDisplay').html(questionSnippet(question++));
   } else { 
     restartPage();
@@ -194,8 +194,8 @@ function nextQuestHandler() {
 
 function restartPage() {
     
-  $(document).on('click','.restart-button', function() {
-    $(document).reset();
+  $(document).on('click','.restart-button', function(location) {
+    location.reload();
     // questionCount = 0;
     // score = 0;
     // $('.result-page').remove();
