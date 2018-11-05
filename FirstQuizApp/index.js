@@ -174,28 +174,29 @@ function userInputHandler() {
 
 function nextQuestHandler() {
   $(document).on('click','#next-button', function () {
-    statusBar();
   $('.feedback-page').hide();
-  if (questionList.length > 10 ) {
+  if (questionCount < 10 ) {
     $('.questionDisplay').html(questionSnippet(question++));
+    statusBar();
   } else { 
     restartPage();
-    $('.question-count').html('10');   
+    // $('.question-count').html('10');   
+
+}
+  });
+};
+
+function restartPage() {
+  $(document).on('click','.restart-button', function() {
+    $('.question-count').trigger('reset');
     $(".feedback-page").remove();
+    console.log('restartPage landed.');
     $('.questionDisplay').html(`
     <section class="result-page">
     <h1>Your final score is ${score} / 10.</h1>
     <button class="restart-button" type="button">Restart</button>
     </section>`
   );
-}
-  });
-};
-
-function restartPage() {
-    
-  $(document).on('click','.restart-button', function(location) {
-    location.reload();
     // questionCount = 0;
     // score = 0;
     // $('.result-page').remove();
