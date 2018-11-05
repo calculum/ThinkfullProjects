@@ -181,14 +181,6 @@ function nextQuestHandler() {
   } else { 
     restartPage();
     // $('.question-count').html('10');   
-
-}
-  });
-};
-
-function restartPage() {
-  $(document).on('click','.restart-button', function() {
-    $('.question-count').trigger('reset');
     $(".feedback-page").remove();
     console.log('restartPage landed.');
     $('.questionDisplay').html(`
@@ -197,6 +189,14 @@ function restartPage() {
     <button class="restart-button" type="button">Restart</button>
     </section>`
   );
+}
+  });
+};
+
+function restartPage() {
+
+  $(document).on('click','.restart-button', function() {
+    $('.question-count').trigger('reset');
     // questionCount = 0;
     // score = 0;
     // $('.result-page').remove();
