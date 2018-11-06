@@ -137,7 +137,6 @@ function runQuiz() {
     statusBar();
     userInputHandler();
     nextQuestHandler();
-    // resultPage();
   });
 };
 
@@ -158,9 +157,8 @@ function userInputHandler() {
     console.log($('input[name="option"]:checked').val());
     console.log(questionList[questionCount-1].correctAns);
     
-
+ //Calling correct user feedback
     if (questionList[questionCount-1].correctAns === userInput) {
-      //Calling correct user feedback
       $('.questionDisplay').html(correctFeedack());
       score++;
       $('.score').html(score);
@@ -178,30 +176,32 @@ function nextQuestHandler() {
   if (questionCount < 10 ) {
     $('.questionDisplay').html(questionSnippet(question++));
     statusBar();
-  } else { 
-    restartPage();
-    // $('.question-count').html('10');   
+  } else {   
     $(".feedback-page").remove();
-    console.log('restartPage landed.');
     $('.questionDisplay').html(`
     <section class="result-page">
     <h1>Your final score is ${score} / 10.</h1>
     <button class="restart-button" type="button">Restart</button>
     </section>`
   );
-}
+    console.log('Result generated.');
+  };
   });
 };
 
 function restartPage() {
-
   $(document).on('click','.restart-button', function() {
-    $('.question-count').trigger('reset');
-    // questionCount = 0;
-    // score = 0;
-    // $('.result-page').remove();
-    // $('main').show();
-  });
+      location.reload();
+    })
+  // $(document).on('click','.restart-button', function() {
+  //   questionCount = 0;
+  //   score = 0;
+  //   $('.question-count').html(questionCount);
+  //   $('.score').html(score);
+  //   console.log('Restart buttion triggered.')
+  //   $('.result-page').remove();
+  //   $('main').show();
+  // });
 };
 
 function correctFeedack() {
