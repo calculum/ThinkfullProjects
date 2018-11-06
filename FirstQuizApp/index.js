@@ -101,31 +101,32 @@ let question = 0;
 function questionSnippet() {
   return `
   <form>
-    <h1 id="question-page" role="main">${questionList[question].text}</h1>
+    
     <fieldset>
+      <legend><h1 id="question-page" role="main">${questionList[question].text}</h1></legend>
       <label for="c1">
-        <input id="c1" type="radio" name="option" value="${questionList[question].ans1}">
+        <input id="c1" type="radio" name="option" value="${questionList[question].ans1}" required checked tabindex="0">
         <span>${questionList[question].ans1}</span>
       </label>
       <label for="c2">
-        <input id="c2" type="radio" name="option" value="${questionList[question].ans2}">
+        <input id="c2" type="radio" name="option" value="${questionList[question].ans2}" tabindex="0">
         <span>${questionList[question].ans2}</span>
       </label>
       <label for="c3">
-        <input id="c3" type="radio" name="option" value="${questionList[question].ans3}">
+        <input id="c3" type="radio" name="option" value="${questionList[question].ans3}" tabindex="0">
         <span>${questionList[question].ans3}</span>
       </label>
       <label for="c4">
-        <input id="c4" type="radio" name="option" value="${questionList[question].ans4}">
+        <input id="c4" type="radio" name="option" value="${questionList[question].ans4}" tabindex="0">
         <span>${questionList[question].ans4}</span>
       </label>
       </fieldset>
   
-  <section>
-    <div>
-    <input id="ans-submit" type="submit" value="Submit">
-    </div> 
-  </section>
+    <section role="region">
+      <div>
+      <input id="ans-submit" type="submit" value="Submit">
+      </div> 
+    </section>
   </form>  `
 };
 
@@ -155,60 +156,50 @@ function userInputHandler() {
     $('form').hide(questionSnippet());
     console.log("clicked");
     console.log($('input[name="option"]:checked').val());
-    console.log(questionList[questionCount-1].correctAns);
-    
- //Calling correct user feedback
-    if (questionList[questionCount-1].correctAns === userInput) {
+    console.log(questionList[questionCount - 1].correctAns);
+
+    //Calling correct user feedback
+    if (questionList[questionCount - 1].correctAns === userInput) {
       $('.questionDisplay').html(correctFeedack());
       score++;
       $('.score').html(score);
     } else {
       $('.questionDisplay').html(incorrectFeedback());
     };
-
   });
 
 };
 
 function nextQuestHandler() {
-  $(document).on('click','#next-button', function () {
-  $('.feedback-page').hide();
-  if (questionCount < 10 ) {
-    $('.questionDisplay').html(questionSnippet(question++));
-    statusBar();
-  } else {   
-    $(".feedback-page").remove();
-    $('.questionDisplay').html(`
+  $(document).on('click', '#next-button', function () {
+    $('.feedback-page').hide();
+    if (questionCount < 10) {
+      $('.questionDisplay').html(questionSnippet(question++));
+      statusBar();
+    } else {
+      $(".feedback-page").remove();
+      $('.questionDisplay').html(`
     <section class="result-page">
     <h1>Your final score is ${score} / 10.</h1>
     <button class="restart-button" type="button">Restart</button>
     </section>`
-  );
-    console.log('Result generated.');
-  };
+      );
+      console.log('Result generated.');
+    };
   });
 };
 
 function restartPage() {
-  $(document).on('click','.restart-button', function() {
-      location.reload();
-    })
-  // $(document).on('click','.restart-button', function() {
-  //   questionCount = 0;
-  //   score = 0;
-  //   $('.question-count').html(questionCount);
-  //   $('.score').html(score);
-  //   console.log('Restart buttion triggered.')
-  //   $('.result-page').remove();
-  //   $('main').show();
-  // });
+  $(document).on('click', '.restart-button', function () {
+    location.reload();
+  });
 };
 
 function correctFeedack() {
   return `
     <section class="feedback-page" role="main">
       <h2>You're right.</h2>
-      <h2>${questionList[questionCount-1].correctAns}</h2>
+      <h2>${questionList[questionCount - 1].correctAns}</h2>
       <button type="button" id="next-button">Next</button>
     </section >
     `;
@@ -218,7 +209,7 @@ function incorrectFeedback() {
   return `
     <section class="feedback-page" role="main">
       <h2>Incorrect.</h2>
-      <h2>${questionList[questionCount-1].correctAns}</h2>
+      <h2>${questionList[questionCount - 1].correctAns}</h2>
       <button type="button" id="next-button">Next</button>
     </section >
     `;

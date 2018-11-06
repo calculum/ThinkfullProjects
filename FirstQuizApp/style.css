@@ -17,3 +17,7 @@ ul {
 form label {
     display: block;
 }
+
+fieldset {
+    border: none;
+}
