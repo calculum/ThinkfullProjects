@@ -99,10 +99,10 @@ let score = 0;
 let question = 0;
 
 function questionSnippet() {
-  return `
-  <form>
-    
-    <fieldset>
+return `
+<form>
+
+  <fieldset>
       <legend><h1 id="question-page" role="main">${questionList[question].text}</h1></legend>
       <label for="c1">
         <input id="c1" type="radio" name="option" value="${questionList[question].ans1}" required checked tabindex="0">
@@ -131,7 +131,7 @@ function questionSnippet() {
 };
 
 function runQuiz() {
-  $('.startButton').click(function (event) {
+  $('.startButton').click(function () {
     $('main').hide();
     $('.questionDisplay').html(questionSnippet());
     console.log('Transition to question page successful.');
