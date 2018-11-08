@@ -2,29 +2,35 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: 99FFE7;
 }
 
 body {
-    background-color: #fff;
-    /* background: url("composting1.jpg"); */
-    /* background-repeat: no-repeat; */
+    background: url('https://i.imgur.com/jxEaNUV.jpg?1') fixed;
+    background-repeat: no-repeat;
+    background-position: bottom;
+    background-size: 80% 40%;
+    
 }    
 
 header, main, section {
     text-align: center;
-    /* margin-right: auto; */
-    /* margin-left: auto; */
 }
 .logo {
     height: 150px;
     width: 150px;
 }
 
-header ul li {
-    padding: 18px;
-    margin: auto 37px auto -2px;
+.status {
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Raleway', sans-serif;
+    margin-bottom: 1em;
+}
+
+header ul {
+    margin: ;
     text-transform: uppercase;
-    
     display: inline;
     list-style: none;
 }
