@@ -9,16 +9,21 @@ body {
     background: url('https://i.imgur.com/jxEaNUV.jpg?1') fixed;
     background-repeat: no-repeat;
     background-position: bottom;
-    background-size: 80% 40%;
-    
-}    
+    background-size: 70% 40%;
+    }    
 
 header, main, section {
     text-align: center;
 }
+
 .logo {
     height: 150px;
     width: 150px;
+}
+
+main h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3em;
 }
 
 .status {
@@ -28,8 +33,18 @@ header, main, section {
     margin-bottom: 1em;
 }
 
-header ul {
-    margin: ;
+.startButton {
+    color: #000000;
+    margin-top: 28px;
+    height: 34px;
+    width: 70px;
+    font-size: 1em;
+    font-family: 'Raleway', sans-serif;
+    border-radius: 20%
+}
+
+header ul li{
+    margin: 20px;
     text-transform: uppercase;
     display: inline;
     list-style: none;
@@ -39,6 +54,53 @@ form label {
     display: block;
 }
 
-fieldset {
+/* Question page CSS below*/
+
+form fieldset {
+    font-size: 23px;
+    font-family: 'Oswald', sans-serif;
     border: none;
+}
+
+form label {
+    vertical-align: middle;
+    margin-top: -1px;
+}
+
+#ans-submit {
+    color: #000000;
+    margin-top: 28px;
+    height: 34px;
+    width: 70px;
+    font-size: 1em;
+    font-family: 'Raleway', sans-serif;
+    border-radius: 20%
+}
+
+#next-button {
+    color: #000000;
+    margin-top: 28px;
+    height: 34px;
+    width: 70px;
+    font-size: 1em;
+    font-family: 'Raleway', sans-serif;
+    border-radius: 20%
+}
+
+.feedback-page h2 {
+    font-size: 2.1em;
+    font-weight: bold;
+    font-family: 'Raleway', sans-serif;
+    line-height: 60px;
+}
+
+/* Result page CSS below */
+.restart-button {
+    color: #000000;
+    margin-top: 28px;
+    height: 34px;
+    width: 70px;
+    font-size: 1em;
+    font-family: 'Raleway', sans-serif;
+    border-radius: 20%
 }
