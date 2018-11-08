@@ -57,9 +57,13 @@ form label {
 /* Question page CSS below*/
 
 form fieldset {
-    font-size: 23px;
+    font-size: 18px;
     font-family: 'Oswald', sans-serif;
     border: none;
+}
+
+#question-page {
+    padding: 10px 20px;
 }
 
 form label {
@@ -92,6 +96,7 @@ form label {
     font-weight: bold;
     font-family: 'Raleway', sans-serif;
     line-height: 60px;
+    padding: 0 20px;
 }
 
 /* Result page CSS below */
@@ -103,4 +108,31 @@ form label {
     font-size: 1em;
     font-family: 'Raleway', sans-serif;
     border-radius: 20%
+}
+
+.result-page h1 {
+    font-size: 25px;
+    font-family: 'Oswald', sans-serif;
+    margin-top: 45px;
+}
+
+/* Setting for Mobile */
+
+@media (max-width: 500px) { 
+    .logo {
+        display: none;
+    }
+    main h1 {
+        font-family: 'Oswald', sans-serif;
+        font-size: 2em;
+    }
+    form fieldset {
+        font-size: 18px;
+    }
+    .status ul{
+        margin-top: 30px;
+    }
+    .feedback-page h2 {
+        font-size: 1.8em;
+    }
 }
