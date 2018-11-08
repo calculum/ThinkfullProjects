@@ -40,7 +40,7 @@ main h1 {
     width: 70px;
     font-size: 1em;
     font-family: 'Raleway', sans-serif;
-    border-radius: 20%
+    border-radius: 20%;
 }
 
 header ul li{
@@ -78,7 +78,8 @@ form label {
     width: 70px;
     font-size: 1em;
     font-family: 'Raleway', sans-serif;
-    border-radius: 20%
+    border-radius: 20%;
+    position: relative;
 }
 
 #next-button {
@@ -88,7 +89,8 @@ form label {
     width: 70px;
     font-size: 1em;
     font-family: 'Raleway', sans-serif;
-    border-radius: 20%
+    border-radius: 20%;
+    position: relative;
 }
 
 .feedback-page h2 {
@@ -119,6 +121,9 @@ form label {
 /* Setting for Mobile */
 
 @media (max-width: 500px) { 
+    body {
+        background-size: 400px 250px;
+    }
     .logo {
         display: none;
     }
