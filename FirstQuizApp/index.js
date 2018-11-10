@@ -101,7 +101,6 @@ let question = 0;
 function questionSnippet() {
 return `
 <form>
-
   <fieldset>
       <legend><h1 id="question-page" role="main">${questionList[question].text}</h1></legend>
       <label for="c1">
@@ -208,8 +207,8 @@ function correctFeedack() {
 function incorrectFeedback() {
   return `
     <section class="feedback-page" role="main">
-      <h2>Incorrect.</h2>
-      <h2>${questionList[questionCount - 1].correctAns}</h2>
+      <h2>Oops, you got it wrong.</h2>
+      <h2>It's ${questionList[questionCount - 1].correctAns}</h2>
       <button type="button" id="next-button">Next</button>
     </section >
     `;
