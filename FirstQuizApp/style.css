@@ -22,14 +22,15 @@ header, main, section {
 }
 
 .status {
+    
     font-size: 20px;
     font-weight: bold;
     font-family: 'Raleway', sans-serif;
-    margin-bottom: 1em;
+    /* margin-bottom: 1em; */
 }
 
 header ul {
-    margin: ;
+    margin: 20px;
     text-transform: uppercase;
     display: inline;
     list-style: none;
