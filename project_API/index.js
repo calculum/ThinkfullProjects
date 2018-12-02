@@ -1,11 +1,11 @@
-const GITHUB_SEARCH_URL = 'https://api.github.com/search/repositories';
+const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
 
 function getDataFromApi(searchTerm, callback) {
   const query = {
     q: `${searchTerm} in:name`,
     per_page: 5
   }
-  $.getJSON(GITHUB_SEARCH_URL, query, callback);
+  $.getJSON(YOUTUBE_SEARCH_URL, query, callback);
 }
 
 function renderResult(result) {
@@ -19,7 +19,7 @@ function renderResult(result) {
   `;
 }
 
-function displayGitHubSearchData(data) {
+function displayYoutubeSearchData(data) {
   const results = data.items.map((item, index) => renderResult(item));
   $('.js-search-results').html(results);
 }
@@ -31,7 +31,7 @@ function watchSubmit() {
     const query = queryTarget.val();
     // clear out the input
     queryTarget.val("");
-    getDataFromApi(query, displayGitHubSearchData);
+    getDataFromApi(query, displayYoutubeSearchData);
   });
 }
 
