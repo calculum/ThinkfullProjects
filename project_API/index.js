@@ -5,7 +5,7 @@ function getDataFromApi(searchTerm, callback) {
     part: 'snippet',
     key: 'AIzaSyAouaY0zJ3VYlPM-iNeww5hQaUWEPAfOYM',
     q: `${searchTerm} in:name`,
-    per_page: 2
+    maxResults: 2
   }
   $.getJSON(YOUTUBE_SEARCH_URL, query, callback);
 }
@@ -14,7 +14,7 @@ function renderResult(result) {
   console.log(result);
   return `
       <div>
-      <a href="${result.default}"><img src="${result.default}" alt="video thumbnail image"></a>
+      <a href="https://www.youtube.com/watch?v=${result.id.videoId}" target="_blank"><img src="${result.snippet.thumbnails.default.url}" alt="video thumbnail image"></a>
       <p>Video Name: <span class="js-video-title">${result.snippet.title}</span></p>
       <p>Channel name: <span class="js-channel-title">${result.snippet.channelTitle}</span></p>
       <p>Channel description: <span class="js-video-details">${result.snippet.description}
