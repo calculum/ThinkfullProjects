@@ -2,21 +2,25 @@ const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
 
 function getDataFromApi(searchTerm, callback) {
   const query = {
+    part: 'snippet',
+    key: 'AIzaSyAouaY0zJ3VYlPM-iNeww5hQaUWEPAfOYM',
     q: `${searchTerm} in:name`,
-    per_page: 5
+    per_page: 2
   }
   $.getJSON(YOUTUBE_SEARCH_URL, query, callback);
 }
 
 function renderResult(result) {
+  console.log(result);
   return `
-    <div>
-      <h2>
-      <a class="js-result-name" href="${result.html_url}" target="_blank">${result.name}</a> by <a class="js-user-name" href="${result.owner.html_url}" target="_blank">${result.owner.login}</a></h2>
-      <p>Number of watchers: <span class="js-watchers-count">${result.watchers_count}</span></p>
-      <p>Number of open issues: <span class="js-issues-count">${result.open_issues}</span></p>
-    </div>
-  `;
+      <div>
+      <a href="${result.default}"><img src="${result.default}" alt="video thumbnail image"></a>
+      <p>Video Name: <span class="js-video-title">${result.snippet.title}</span></p>
+      <p>Channel name: <span class="js-channel-title">${result.snippet.channelTitle}</span></p>
+      <p>Channel description: <span class="js-video-details">${result.snippet.description}
+      </span></p>
+      </div>
+      `
 }
 
 function displayYoutubeSearchData(data) {
