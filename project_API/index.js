@@ -3,6 +3,7 @@ const YOUTUBE_SEARCH_URL = 'https://www.googleapis.com/youtube/v3/search';
 function getDataFromApi(searchTerm, callback) {
   const query = {
     part: 'snippet',
+    access_token: oauth2.0,
     key: 'AIzaSyAouaY0zJ3VYlPM-iNeww5hQaUWEPAfOYM',
     q: `${searchTerm} in:name`,
     per_page: 2
