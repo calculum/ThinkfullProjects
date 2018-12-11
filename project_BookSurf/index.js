@@ -1,11 +1,11 @@
-const GBOOK_SEARCH_URL = 'https://www.googleapis.com/books/v1/';
+const GBOOK_SEARCH_URL = 'https://www.googleapis.com/books/v1/volumes?';
 
 function getDataFromApi(searchTerm, callback) {
   const query = {
-    fields: (title,author/uri),
+    fields: 'items(volumeInfo/title,volumeInfo/authors,etag,id)',
     key: 'AIzaSyAouaY0zJ3VYlPM-iNeww5hQaUWEPAfOYM',
-    q: `${searchTerm} in:name`,
-    per_page: 2
+    q: `Firefly`,
+    maxResults: 5,
   }
   $.getJSON(GBOOK_SEARCH_URL, query, callback);
 }
@@ -14,29 +14,32 @@ function renderResult(result) {
   console.log(result);
   return `
       <div>
-      <a href="${result.default}"><img src="${result.default}" alt="video thumbnail image"></a>
-      <p>Video Name: <span class="js-video-title">${result.snippet.title}</span></p>
-      <p>Channel name: <span class="js-channel-title">${result.snippet.channelTitle}</span></p>
-      <p>Channel description: <span class="js-video-details">${result.snippet.description}
+      <a href="${result.default}"><img src="${result.default}" alt="Book thumbnail image"></a>
+      <p>Book Name: <span class="js-book-title">${result.items.volumeInfo.title}</span></p>
+      <p>Author: <span class="js-book-title">${result.volumeInfo.authors}</span></p>
+      <p>Book description: <span class="js-book-details">${result.snippet.description}
       </span></p>
       </div>
       `
 }
 
 function displayBookSearchData(data) {
-  const results = data.items.map((item, index) => renderResult(item));
+  const results = data.items.map(function (item,index) {
+      renderResult(item);
   $('.js-search-results').html(results);
+  });
 }
 
 function watchSubmit() {
-  $('.js-search-form').submit(event => {
-    event.preventDefault();
-    const queryTarget = $(event.currentTarget).find('.js-query');
-    const query = queryTarget.val();
-    // clear out the input
-    queryTarget.val("");
-    getDataFromApi(query, displayBookSearchData);
-  });
+  $('.js-search-form').submit(
+        function (event) {
+            event.preventDefault();
+            const queryTarget = $(event.currentTarget).find('.js-query');
+            const query = queryTarget.val();
+            // clear out the input
+            queryTarget.val("");
+            getDataFromApi(query, displayBookSearchData);
+        });
 }
 
 $(watchSubmit);
