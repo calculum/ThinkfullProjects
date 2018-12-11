@@ -14,18 +14,18 @@ function renderResult(result) {
   console.log(result);
   return `
       <div>
-      <a href="${result.default}"><img src="${result.default}" alt="Book thumbnail image"></a>
+      <a href=""><img src="" alt="Book thumbnail image"></a>
       <p>Book Name: <span class="js-book-title">${result.items.volumeInfo.title}</span></p>
       <p>Author: <span class="js-book-title">${result.volumeInfo.authors}</span></p>
-      <p>Book description: <span class="js-book-details">${result.snippet.description}
-      </span></p>
+      <p>Book description: <span class="js-book-details"></span></p>
       </div>
       `
 }
 
 function displayBookSearchData(data) {
+    
   for (let i = 0; i <= data.items.length; i++) {
-      const results = '<h2>' + data.items[i].volumeInfo.title + '</h2>';
+      const results = "<h2>" + data.items[i].volumeInfo.authors + "</h2>";
       $('.js-search-results').html(results);
   }
 }
@@ -37,6 +37,7 @@ function watchSubmit() {
             const query = $('.js-query').val();
             getDataFromApi(query, displayBookSearchData);
         });
+        
 }
 
 $(watchSubmit);
