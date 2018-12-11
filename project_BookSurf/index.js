@@ -2,9 +2,9 @@ const GBOOK_SEARCH_URL = 'https://www.googleapis.com/books/v1/volumes?';
 
 function getDataFromApi(searchTerm, callback) {
   const query = {
-    fields: 'items(volumeInfo/title,volumeInfo/authors,etag,id)',
+    fields: 'items',
     key: 'AIzaSyAouaY0zJ3VYlPM-iNeww5hQaUWEPAfOYM',
-    q: `Firefly`,
+    q: `${searchTerm} in:name`,
     maxResults: 5,
   }
   $.getJSON(GBOOK_SEARCH_URL, query, callback);
@@ -12,22 +12,24 @@ function getDataFromApi(searchTerm, callback) {
 
 function renderResult(result) {
   console.log(result);
+
   return `
       <div>
-      <a href=""><img src="" alt="Book thumbnail image"></a>
-      <p>Book Name: <span class="js-book-title">${result.items.volumeInfo.title}</span></p>
+      <a href="${result.volumeInfo.previewLink}" target=_blank><img src="${result.volumeInfo.imageLinks.thumbnail}" alt="Book thumbnail image"></a>
+      <p>Book Name: <span class="js-book-title">${result.volumeInfo.title}</span></p>
       <p>Author: <span class="js-book-title">${result.volumeInfo.authors}</span></p>
-      <p>Book description: <span class="js-book-details"></span></p>
+      <p>Book description: <span class="js-book-details">${result.volumeInfo.description}</span></p>
       </div>
       `
 }
 
 function displayBookSearchData(data) {
-    
-  for (let i = 0; i <= data.items.length; i++) {
-      const results = "<h2>" + data.items[i].volumeInfo.authors + "</h2>";
-      $('.js-search-results').html(results);
+  const bookList = [];
+  for (let i = 0; i < data.items.length; i++) {
+      bookList.push(renderResult(data.items[i]));
   }
+
+  $('.js-search-results').html(bookList.join(""));
 }
 
 function watchSubmit() {
