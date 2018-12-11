@@ -24,20 +24,17 @@ function renderResult(result) {
 }
 
 function displayBookSearchData(data) {
-  const results = data.items.map(function (item,index) {
-      renderResult(item);
-  $('.js-search-results').html(results);
-  });
+  for (let i = 0; i <= data.items.length; i++) {
+      const results = '<h2>' + data.items[i].volumeInfo.title + '</h2>';
+      $('.js-search-results').html(results);
+  }
 }
 
 function watchSubmit() {
   $('.js-search-form').submit(
         function (event) {
             event.preventDefault();
-            const queryTarget = $(event.currentTarget).find('.js-query');
-            const query = queryTarget.val();
-            // clear out the input
-            queryTarget.val("");
+            const query = $('.js-query').val();
             getDataFromApi(query, displayBookSearchData);
         });
 }
