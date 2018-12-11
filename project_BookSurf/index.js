@@ -5,7 +5,7 @@ function getDataFromApi(searchTerm, callback) {
     fields: 'items',
     key: 'AIzaSyAouaY0zJ3VYlPM-iNeww5hQaUWEPAfOYM',
     q: `${searchTerm} in:name`,
-    maxResults: 5,
+    maxResults: 10,
   }
   $.getJSON(GBOOK_SEARCH_URL, query, callback);
 }
