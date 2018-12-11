@@ -2,7 +2,7 @@ const GBOOK_SEARCH_URL = 'https://www.googleapis.com/books/v1/';
 
 function getDataFromApi(searchTerm, callback) {
   const query = {
-    accesspoart: 'snippet',
+    fields: (title,author/uri),
     key: 'AIzaSyAouaY0zJ3VYlPM-iNeww5hQaUWEPAfOYM',
     q: `${searchTerm} in:name`,
     per_page: 2
