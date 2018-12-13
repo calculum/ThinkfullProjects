@@ -4,7 +4,8 @@ function getDataFromApi(searchTerm, callback) {
   const query = {
     fields: 'items',
     key: 'AIzaSyAouaY0zJ3VYlPM-iNeww5hQaUWEPAfOYM',
-    q: `${searchTerm} in:name`,
+    q: `${searchTerm} intitle subject`,
+    orderBy: 'relevance',
     maxResults: 10,
   }
   $.getJSON(GBOOK_SEARCH_URL, query, callback);
@@ -14,13 +15,17 @@ function renderResult(result) {
   console.log(result);
 
   return `
-      <div>
-      <a href="${result.volumeInfo.previewLink}" target=_blank><img src="${result.volumeInfo.imageLinks.thumbnail}" alt="Book thumbnail image"></a>
-      <p>Book Name: <span class="js-book-title">${result.volumeInfo.title}</span></p>
-      <p>Author: <span class="js-book-title">${result.volumeInfo.authors}</span></p>
-      <p>Book description: <span class="js-book-details">${result.volumeInfo.description}</span></p>
+      <div class="results-container">
+      <div class="row">
+        <div class="col-3">
+          <img src="${result.volumeInfo.imageLinks.thumbnail}" alt="Book thumbnail image">
+          <h3><span class="js-book-title">${result.volumeInfo.title}</span></h3>
+          <h3 class="js-book-author">${result.volumeInfo.authors}</h3>
+        </div>
       </div>
+    </div>
       `
+
 }
 
 function displayBookSearchData(data) {

@@ -2,26 +2,83 @@
     box-sizing: border-box;
 }
 
+body {
+    background-color: #C6FFC8;
+}
+
 .form-container {
     margin-top: 15%;
     text-align: center;
 }
 
-h1 {
+.form-container h1 {
+    font-family: 'Gloria Hallelujah', cursive;
+    font-size: 7.8em;
 }
 
 .js-query {
-    margin-bottom: 20px;
-    width: 350px;
-    height: 30px;
-}
-button {
-    margin: 0 auto;
-    display: block;
+    margin-bottom: 18px;
+    width: 400px;
+    height: 50px;
+    border-radius: 5%;
+    border: solid silver;
+    font-size: 2.2em;
+    font-family: 'Quicksand', sans-serif;
 }
 
+button[type="submit"] {
+    margin: 0 auto;
+    display: block;
+    font-size: 1.5em;
+    border-radius: 7%;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bolder;
+    
+}
+
+.results-container {
+    margin: 30px 10px;
+    display: flex;
+    width: auto;    
+    height: auto;
+}
+
+.row {
+    background-color: #ffffff;
+    width: 300px;
+    height: 500px;
+}
+
+.row img {
+    background-color: #000000;
+    width: 280px;
+    height: 300px;
+    display: inline-block;
+    text-align: center;
+    
+}
+
+.col-3 {
+    padding: 8px;
+}
+
+.col-3 h3 {
+    background-color: orangered;
+    width: 280px;
+    text-align: center;
+}
+
+
+/* For mobile responsiveness */
 @media only screen and (min-width: 640px) {
     .col-3 {
         width: 25%;
     }
+}    
+
+@media (max-width: 1900px) {
+    .form-container h1 {
+        font-size: 4.8em;
+    }
 }
+
