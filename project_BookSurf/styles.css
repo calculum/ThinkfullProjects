@@ -2,7 +2,7 @@
     box-sizing: border-box;
 }
 
-.container {
+.form-container {
     margin-top: 15%;
     text-align: center;
 }
@@ -18,4 +18,10 @@ h1 {
 button {
     margin: 0 auto;
     display: block;
+}
+
+@media only screen and (min-width: 640px) {
+    .col-3 {
+        width: 25%;
+    }
 }
