@@ -40,19 +40,19 @@ button[type="submit"] {
     margin: 30px 10px;
     display: flex;
     padding: 2px 16px;
-    /* background-color: green; */
     flex-flow: row wrap;
     justify-content: space-around;
 }
 
 .flex-container {
-    display: flex;
 }
+
 
 
 .col-3 {
     width: 240px;
     height: 300px;
+    margin: 10px;
     box-shadow: 0 0 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
     text-align: center;

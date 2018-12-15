@@ -4,9 +4,9 @@ function getDataFromApi(searchTerm, callback) {
   const query = {
     fields: 'items',
     key: 'AIzaSyAouaY0zJ3VYlPM-iNeww5hQaUWEPAfOYM',
-    q: `firefly`,
+    q: `${searchTerm}`,
     orderBy: 'relevance',
-    maxResults: 10,
+    maxResults: 28,
   }
   $.getJSON(GBOOK_SEARCH_URL, query, callback);
 }
@@ -15,7 +15,6 @@ function renderResult(result) {
   console.log(result);
 
   return `
-    <div class="results-container">
       <div class="flex-container">
         <div class="col-3">
           <img src="${result.volumeInfo.imageLinks.thumbnail}" alt="Book thumbnail image">
@@ -23,7 +22,6 @@ function renderResult(result) {
           <h3 class="js-book-author">${result.volumeInfo.authors}</h3>
         </div>
       </div>
-    </div>
       `
 
 }
