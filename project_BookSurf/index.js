@@ -4,7 +4,7 @@ function getDataFromApi(searchTerm, callback) {
   const query = {
     fields: 'items',
     key: 'AIzaSyAouaY0zJ3VYlPM-iNeww5hQaUWEPAfOYM',
-    q: `${searchTerm} intitle subject`,
+    q: `${searchTerm}+intitle+subject`,
     orderBy: 'relevance',
     maxResults: 10,
   }
@@ -15,8 +15,8 @@ function renderResult(result) {
   console.log(result);
 
   return `
-      <div class="results-container">
-      <div class="row">
+    <div class="results-container">
+      <div class="flex-container">
         <div class="col-3">
           <img src="${result.volumeInfo.imageLinks.thumbnail}" alt="Book thumbnail image">
           <h3><span class="js-book-title">${result.volumeInfo.title}</span></h3>
@@ -34,7 +34,7 @@ function displayBookSearchData(data) {
       bookList.push(renderResult(data.items[i]));
   }
 
-  $('.js-search-results').html(bookList.join(""));
+  $('.js-search-results').append(bookList.join(""));
 }
 
 function watchSubmit() {
