@@ -39,17 +39,15 @@ button[type="submit"] {
 .results-container {
     margin: 30px 10px;
     display: flex;
-    height: 1900px;
     padding: 2px 16px;
     /* background-color: green; */
-    display: flex;
     flex-flow: row wrap;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
-/* .flex-container {
+.flex-container {
     display: flex;
-} */
+}
 
 
 .col-3 {

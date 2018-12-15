@@ -4,7 +4,7 @@ function getDataFromApi(searchTerm, callback) {
   const query = {
     fields: 'items',
     key: 'AIzaSyAouaY0zJ3VYlPM-iNeww5hQaUWEPAfOYM',
-    q: `${searchTerm}+intitle+subject`,
+    q: `firefly`,
     orderBy: 'relevance',
     maxResults: 10,
   }
