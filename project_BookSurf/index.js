@@ -34,7 +34,7 @@ function displayBookSearchData(data) {
       bookList.push(renderResult(data.items[i]));
   }
 
-  $('.js-search-results').append(bookList.join(""));
+  $('.js-search-results').html(bookList.join(""));
 }
 
 function watchSubmit() {
