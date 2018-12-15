@@ -28,10 +28,14 @@ function renderResult(result) {
 
 function displayBookSearchData(data) {
   const bookList = [];
+  const apiImg = ${result.volumeInfo.imageLinks.thumbnail};
+
   for (let i = 0; i < data.items.length; i++) {
       bookList.push(renderResult(data.items[i]));
   }
-
+  if (apiImg == undefined) {
+    $('.col-3').add
+  }
   $('.js-search-results').html(bookList.join(""));
 }
 
