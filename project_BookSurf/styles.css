@@ -13,17 +13,18 @@ body {
 
 .form-container h1 {
     font-family: 'Gloria Hallelujah', cursive;
-    font-size: 7.8em;
+    font-size: 8em;
 }
 
 .js-query {
     margin-bottom: 18px;
-    width: 500px;
+    width: 600px;
     height: 50px;
     border-radius: 5%;
     border: solid silver;
     font-size: 2em;
     font-family: 'Quicksand', sans-serif;
+    text-align: center;
 }
 
 button[type="submit"] {
@@ -86,17 +87,17 @@ button[type="submit"] {
 
 
 /* For mobile responsiveness */
-@media screen and (min-width: 640px) {
-    .js-query {
-        width: 400px;
-    }
+@media screen and (min-width: 720px) {
+
 }    
 
-@media (max-width: 1900px) {
+@media (max-width: 720px) {
+   .js-query {
+        width: 400px;
+    } 
+
     .form-container h1 {
-        font-size: 4.8em;
+        font-size: 4em;
     }
-
-
 }
 
