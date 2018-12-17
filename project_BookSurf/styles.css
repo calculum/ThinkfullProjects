@@ -14,6 +14,11 @@ body {
 .form-container h1 {
     font-family: 'Gloria Hallelujah', cursive;
     font-size: 8em;
+    margin-bottom: 15px;
+}
+
+.js-search-form {
+    display: none;
 }
 
 .js-query {

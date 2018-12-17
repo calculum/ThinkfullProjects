@@ -4,7 +4,7 @@ function getDataFromApi(searchTerm, callback) {
   const query = {
     fields: 'items',
     key: 'AIzaSyAouaY0zJ3VYlPM-iNeww5hQaUWEPAfOYM',
-    q: `${searchTerm} , subject, inauthor`,
+    q: `${searchTerm} , inauthor`,
     orderBy: 'relevance',
     maxResults: 40,
   }
@@ -63,6 +63,9 @@ function logoAnimation() {
   setTimeout(function () {
     logo.html("BookSurf");
   },1800);
+  setTimeout(function () {
+    $('.js-search-form').show();
+  },2200);
 };
 
 function watchSubmit() {
