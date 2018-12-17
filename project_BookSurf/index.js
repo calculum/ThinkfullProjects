@@ -4,25 +4,28 @@ function getDataFromApi(searchTerm, callback) {
   const query = {
     fields: 'items',
     key: 'AIzaSyAouaY0zJ3VYlPM-iNeww5hQaUWEPAfOYM',
-    q: `${searchTerm}, subject, inauthor`,
-    orderBy: 'relevance',
+    q: `${searchTerm}, [subject, inauthor]`,
+    filter:['partial , ebooks, paid-ebooks'],
+    printType:['books'],
+    orderBy: ['relevance'],
     maxResults: 40,
   }
   $.getJSON(GBOOK_SEARCH_URL, query, callback);
 }
 
 function renderResult(result) {
-  console.log(result);
+  console.log(result.volumeInfo.imageLinks.thumbnail);
 
   return `
+    <a href="${result.volumeInfo.infoLink}" target= blank id="card-link">
       <div class="flex-container">
         <div class="col-3">
           <img src="${result.volumeInfo.imageLinks.thumbnail}" alt="Book thumbnail image">
-          <button class="preView">Preview</button>
-          <h3 class="js-book-title" title="${result.volumeInfo.title}">${result.volumeInfo.title}</h3>
-          <h3 class="js-book-author" title="${result.volumeInfo.authors}">${result.volumeInfo.authors}</h3>
+          <div class="js-book-title" title="${result.volumeInfo.title}">${result.volumeInfo.title}</div>
+          <div class="js-book-author" title="${result.volumeInfo.authors}">${result.volumeInfo.authors}</div>
         </div>
       </div>
+    </a>
       `
 
 }

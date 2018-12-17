@@ -56,6 +56,10 @@ button[type="submit"]:hover {
     justify-content: space-around;
 }
 
+#card-link {
+    color: #000000;
+}
+
 .flex-container {
 }
 
@@ -86,24 +90,22 @@ button[type="submit"]:hover {
     border-radius: 4%; 
 }
 
-.col-3 img:hover + .preView{
-    display: inline-block;
-}
-.preView {
-    display: none;
-    text-align: center;
-    top: 50%;
-    left: 50%;
-}
-
-.col-3 h3 {
+.js-book-title {
+    margin: 20px auto;
     white-space: nowrap;
-    overflow:hidden;
-    white-space: normal;
+    overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 240px;
+    width: 150px;
+    font-size: 20px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: bold;
 }
 
+.js-book-author {
+    margin-top: 50px auto;
+    font-size: 15px;
+    font-family: 'Quicksand', sans-serif;
+}
 
 
 
