@@ -4,7 +4,7 @@ function getDataFromApi(searchTerm, callback) {
   const query = {
     fields: 'items',
     key: 'AIzaSyAouaY0zJ3VYlPM-iNeww5hQaUWEPAfOYM',
-    q: `${searchTerm} , inauthor`,
+    q: `${searchTerm}, subject, inauthor`,
     orderBy: 'relevance',
     maxResults: 40,
   }
