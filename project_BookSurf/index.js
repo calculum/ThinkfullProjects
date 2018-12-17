@@ -4,7 +4,7 @@ function getDataFromApi(searchTerm, callback) {
   const query = {
     fields: 'items',
     key: 'AIzaSyAouaY0zJ3VYlPM-iNeww5hQaUWEPAfOYM',
-    q: `${searchTerm} , subject`,
+    q: `${searchTerm} , subject, inauthor`,
     orderBy: 'relevance',
     maxResults: 40,
   }
@@ -18,6 +18,7 @@ function renderResult(result) {
       <div class="flex-container">
         <div class="col-3">
           <img src="${result.volumeInfo.imageLinks.thumbnail}" alt="Book thumbnail image">
+          <button class="preView">Preview</button>
           <h3 class="js-book-title" title="${result.volumeInfo.title}">${result.volumeInfo.title}</h3>
           <h3 class="js-book-author" title="${result.volumeInfo.authors}">${result.volumeInfo.authors}</h3>
         </div>
@@ -36,6 +37,34 @@ function displayBookSearchData(data) {
   $('.js-search-results').html(bookList);
 }
 
+function logoAnimation() {
+  var logo = $('#mainLogo');
+  setTimeout(function () {
+    logo.html("B");
+  },400);
+  setTimeout(function () {
+    logo.html("Bo");
+  },600);
+  setTimeout(function () {
+    logo.html("Boo");
+  },800);
+  setTimeout(function () {
+    logo.html("Book");
+  },1000);
+  setTimeout(function () {
+    logo.html("BookS");
+  },1200);
+  setTimeout(function () {
+    logo.html("BookSu");
+  },1400);
+  setTimeout(function () {
+    logo.html("BookSur");
+  },1600);
+  setTimeout(function () {
+    logo.html("BookSurf");
+  },1800);
+};
+
 function watchSubmit() {
   $('.js-search-form').submit(
         function (event) {
@@ -47,5 +76,5 @@ function watchSubmit() {
         });
         
 }
-
+$(logoAnimation);
 $(watchSubmit);

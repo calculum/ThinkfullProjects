@@ -28,13 +28,19 @@ body {
 }
 
 button[type="submit"] {
-    margin: 0 auto;
+margin: 0 auto;
+    width: 80px;
+    height: 40px;
     display: block;
     font-size: 1.5em;
     border-radius: 7%;
     font-family: 'Quicksand', sans-serif;
     font-weight: bolder;
     
+}
+
+button[type="submit"]:hover {
+    background-color:silver;
 }
 
 .results-container {
@@ -58,11 +64,12 @@ button[type="submit"] {
     transition: 0.3s;
     text-align: center;
     border-radius: 4%;
+    display: inline-block;
     
 }
 
 .col-3:hover {
-    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.5);
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.7);
 }
 
 
@@ -72,6 +79,16 @@ button[type="submit"] {
     height: 210px;
     text-align: center;
     border-radius: 4%; 
+}
+
+.col-3 img:hover + .preView{
+    display: inline-block;
+}
+.preView {
+    display: none;
+    text-align: center;
+    top: 50%;
+    left: 50%;
 }
 
 .col-3 h3 {
