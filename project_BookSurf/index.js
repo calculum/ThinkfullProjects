@@ -8,7 +8,7 @@ function getDataFromApi(searchTerm, callback) {
     filter:['partial , ebooks, paid-ebooks'],
     printType:['books'],
     orderBy: ['relevance'],
-    maxResults: 40,
+    maxResults: 28,
   }
   $.getJSON(GBOOK_SEARCH_URL, query, callback);
 }
@@ -16,18 +16,17 @@ function getDataFromApi(searchTerm, callback) {
 function renderResult(result) {
   console.log(result.volumeInfo.imageLinks.thumbnail);
 
-  return `
+    return `
     <a href="${result.volumeInfo.infoLink}" target= blank id="card-link">
       <div class="flex-container">
         <div class="col-3">
-          <img src="${result.volumeInfo.imageLinks.thumbnail}" alt="Book thumbnail image">
+          <img src="${result.volumeInfo.imageLinks.thumbnail}" alt="Book thumbnail image" id="card-img">
           <div class="js-book-title" title="${result.volumeInfo.title}">${result.volumeInfo.title}</div>
           <div class="js-book-author" title="${result.volumeInfo.authors}">${result.volumeInfo.authors}</div>
         </div>
       </div>
     </a>
-      `
-
+    `
 }
 
 function displayBookSearchData(data) {
@@ -71,6 +70,7 @@ function logoAnimation() {
   },2200);
 };
 
+
 function watchSubmit() {
   $('.js-search-form').submit(
         function (event) {
@@ -79,6 +79,7 @@ function watchSubmit() {
             const queryClr = $(event.currentTarget).find(".js-query")
             getDataFromApi(query, displayBookSearchData);
             queryClr.val("");
+            
         });
         
 }
