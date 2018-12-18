@@ -14,15 +14,15 @@ function getDataFromApi(searchTerm, callback) {
 }
 
 function renderResult(result) {
-  console.log(result.volumeInfo.imageLinks.thumbnail);
+  // console.log(result.volumeInfo.imageLinks.thumbnail);
 
     return `
     <a href="${result.volumeInfo.infoLink}" target= blank id="card-link">
       <div class="flex-container">
         <div class="col-3">
-          <img src="${result.volumeInfo.imageLinks.thumbnail}" alt="Book thumbnail image" id="card-img">
+          <img src="${result.volumeInfo.imageLinks ? result.volumeInfo.imageLinks.thumbnail : ''}" alt="Book thumbnail image" id="card-img">
           <div class="js-book-title" title="${result.volumeInfo.title}">${result.volumeInfo.title}</div>
-          <div class="js-book-author" title="${result.volumeInfo.authors}">${result.volumeInfo.authors}</div>
+          <div class="js-book-author" title="${result.volumeInfo.authors}">${result.volumeInfo.authors ? result.volumeInfo.authors : 'Author name not available.'}</div>
         </div>
       </div>
     </a>
@@ -70,7 +70,6 @@ function logoAnimation() {
   },2200);
 };
 
-
 function watchSubmit() {
   $('.js-search-form').submit(
         function (event) {
@@ -79,7 +78,6 @@ function watchSubmit() {
             const queryClr = $(event.currentTarget).find(".js-query")
             getDataFromApi(query, displayBookSearchData);
             queryClr.val("");
-            
         });
         
 }
